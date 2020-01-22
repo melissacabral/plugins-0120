@@ -26,4 +26,24 @@ function mmc_register_cpt(){
 									'not_found'		=> 'No Pieces Found',
 								),
 	) );
+
+	register_taxonomy( 'work_type', 'portfolio_piece', array(
+		'labels' => array(
+						'name' => 'Work Types',
+						'singular_name' => 'Work Type',
+						'search_items'	=> 'Search Types',
+						'add_new_item'	=> 'Add New Work Type',
+						'not_found'		=> 'No Work Types Found',
+					),
+		'show_in_rest' => true, //make it work with the new editor
+		'hierarchical' => true, //checkbox-style interface
+		'show_admin_column' => true,
+	) );
 }
+
+//Make this plugin fix 404 errors when it activates
+function mmc_flush_links(){
+	mmc_register_cpt();
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'mmc_flush_links' );
