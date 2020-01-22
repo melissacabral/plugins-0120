@@ -1,0 +1,29 @@
+/* Plugin CSS should be very specific */
+
+#greetings-bar{
+	background-color:tomato;
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	text-align: center;
+	padding:.2em;
+	color:white;
+}
+
+.admin-bar #greetings-bar{
+	top:32px;
+}
+
+#greetings-bar p{
+	display: inline-block;
+	margin:0;
+}
+
+#greetings-bar .greetings-button{
+	background-color:black;
+	color:white;
+	padding:.1em .5em;
+	margin:.2em;
+	border-radius:4px;
+}
